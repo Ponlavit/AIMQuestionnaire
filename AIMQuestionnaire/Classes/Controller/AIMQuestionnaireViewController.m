@@ -7,10 +7,9 @@
 //
 
 #import "AIMQuestionnaireViewController.h"
-#import "AIMQuestionnaireExportHeader.h"
 #import "AIMQuestionView.h"
-#import <MBProgressHUD/MBProgressHUD.h>
-#import <AIMJSONModelNetworking-iOS/UIColor+StringColor.h>
+#import "MBProgressHUD.h"
+#import "UIColor+HexStringColor.h"
 @interface AIMQuestionnaireViewController ()
 @property (nonatomic) float totalScore;
 @property (nonatomic,strong) UIView *questionHolder;

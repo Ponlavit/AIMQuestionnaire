@@ -6,13 +6,17 @@
 //  Copyright © 2559 Do In Thai co., ltd. All rights reserved.
 //
 
-#import <AIMJSONModelNetworking-iOS/BaseModel.h>
+#import "BaseModel.h"
 #import "AIMResult.h"
 #import "AIMQuestion.h"
 
 @interface AIMQuestionnaire : BaseModel
 @property (nonatomic,strong) NSString *questionnaire_title;
 @property (nonatomic,strong) NSString *questionnaire_image;
-property_NSMutableArray(AIMResult, results);
-property_NSMutableArray(AIMQuestion,questions);
+_Pragma("clang diagnostic push");
+_Pragma("clang diagnostic ignored \"-Wobjc-protocol-qualifiers\"");
+@property(nonatomic,strong) NSMutableArray<AIMQuestion> *questions;
+@property(nonatomic,strong) NSMutableArray<AIMResult> *results;
+_Pragma("clang diagnostic pop")
+
 @end

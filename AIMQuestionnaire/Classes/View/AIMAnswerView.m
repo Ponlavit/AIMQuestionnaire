@@ -8,7 +8,6 @@
 
 #import "AIMAnswerView.h"
 #import <QuartzCore/QuartzCore.h>
-#import <AIMJSONModelNetworking-iOS/UIColor+StringColor.h>
 
 @interface AIMAnswerView()
 @property (nonatomic,strong) UIWebView *answerTextHolder;

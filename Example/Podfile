@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'AIMQuestionnaire_Example' do
   pod 'AIMQuestionnaire', :path => '../'
-
+  pod 'AIMJSONModelNetworking-iOS'
   target 'AIMQuestionnaire_Tests' do
     inherit! :search_paths
 

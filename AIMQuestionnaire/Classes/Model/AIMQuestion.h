@@ -6,7 +6,7 @@
 //  Copyright © 2559 Do In Thai co., ltd. All rights reserved.
 //
 
-#import <AIMJSONModelNetworking-iOS/BaseModel.h>
+#import "BaseModel.h"
 #import "AIMAnswer.h"
 GENERICSABLE(AIMQuestion)
 @interface AIMQuestion : BaseModel
@@ -15,5 +15,10 @@ GENERICSABLE(AIMQuestion)
 @property (nonatomic) BOOL has_image;
 @property (nonatomic,strong) NSMutableArray *images;
 @property (nonatomic) float max_score;
-property_NSMutableArray(AIMAnswer, answers);
+
+_Pragma("clang diagnostic push");
+_Pragma("clang diagnostic ignored \"-Wobjc-protocol-qualifiers\"");
+@property(nonatomic,strong) NSMutableArray<AIMAnswer> *answers;
+_Pragma("clang diagnostic pop")
+
 @end

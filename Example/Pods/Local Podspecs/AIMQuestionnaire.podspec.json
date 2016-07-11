@@ -1,9 +1,9 @@
 {
   "name": "AIMQuestionnaire",
-  "version": "0.1.0",
-  "summary": "A short description of AIMQuestionnaire.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/AIMQuestionnaire",
+  "version": "0.1.2",
+  "summary": "AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse",
+  "description": "AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse. the result will be delegate back and you can freely manage it.",
+  "homepage": "https://github.com/Ponlavit/AIMQuestionnaire",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,22 @@
     "Ponlavit Larpeampaisarl": "ponlavit@do.in.th"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/AIMQuestionnaire.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/Ponlavit/AIMQuestionnaire.git",
+    "tag": "0.1.2"
   },
+  "social_media_url": "https://twitter.com/code_rabbit",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "AIMQuestionnaire/Classes/**/*"
+  "source_files": "AIMQuestionnaire/Classes/**/*",
+  "frameworks": "UIKit",
+  "requires_arc": true,
+  "dependencies": {
+    "AIMJSONModelNetworking-iOS": [
+
+    ],
+    "MBProgressHUD": [
+
+    ]
+  }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="added_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="failed_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_success" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="json_message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="module" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sent_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="target" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="target_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="responses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TransactionResponse" inverseName="source" inverseEntity="TransactionResponse" syncable="YES"/>
+        <fetchedProperty name="fetchedActive" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Transaction" predicateString="is_success == false"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="TransactionResponse" representedClassName="TransactionResponse" syncable="YES">
+        <attribute name="added_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="response_message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="responses" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Transaction" positionX="0" positionY="0" width="128" height="224"/>
+        <element name="TransactionResponse" positionX="0" positionY="0" width="128" height="105"/>
+    </elements>
+</model>

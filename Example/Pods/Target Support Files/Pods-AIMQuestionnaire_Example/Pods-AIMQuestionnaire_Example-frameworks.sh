@@ -84,8 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AIMJSONModelNetworking-iOS/AIMJSONModelNetworking_iOS.framework"
   install_framework "$BUILT_PRODUCTS_DIR/AIMQuestionnaire/AIMQuestionnaire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EGOCache/EGOCache.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AIMJSONModelNetworking-iOS/AIMJSONModelNetworking_iOS.framework"
   install_framework "$BUILT_PRODUCTS_DIR/AIMQuestionnaire/AIMQuestionnaire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EGOCache/EGOCache.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
 fi

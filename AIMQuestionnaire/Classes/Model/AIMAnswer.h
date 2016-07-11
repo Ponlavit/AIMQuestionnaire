@@ -6,7 +6,7 @@
 //  Copyright © 2559 Do In Thai co., ltd. All rights reserved.
 //
 
-#import <AIMJSONModelNetworking-iOS/BaseModel.h>
+#import "BaseModel.h"
 GENERICSABLE(AIMAnswer)
 @interface AIMAnswer : BaseModel
 @property (nonatomic,strong) NSString *answer_text;

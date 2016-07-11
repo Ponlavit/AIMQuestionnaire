@@ -1,8 +1,8 @@
 EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) $(PLATFORM_DIR)/Developer/Library/Frameworks "$PODS_CONFIGURATION_BUILD_DIR/FBSnapshotTestCase" "$PODS_CONFIGURATION_BUILD_DIR/AIMQuestionnaire"
+FRAMEWORK_SEARCH_PATHS = $(inherited) $(PLATFORM_DIR)/Developer/Library/Frameworks "$PODS_CONFIGURATION_BUILD_DIR/FBSnapshotTestCase" "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/AIMJSONModelNetworking-iOS" "$PODS_CONFIGURATION_BUILD_DIR/AIMQuestionnaire" "$PODS_CONFIGURATION_BUILD_DIR/EGOCache" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/FBSnapshotTestCase/FBSnapshotTestCase.framework/Headers" $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AIMQuestionnaire/AIMQuestionnaire.framework/Headers"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/FBSnapshotTestCase/FBSnapshotTestCase.framework/Headers" $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/AIMJSONModelNetworking-iOS/AIMJSONModelNetworking_iOS.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/AIMQuestionnaire/AIMQuestionnaire.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/EGOCache/EGOCache.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -framework "FBSnapshotTestCase"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR

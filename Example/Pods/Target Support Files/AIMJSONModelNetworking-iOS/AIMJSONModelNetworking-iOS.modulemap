@@ -1,0 +1,6 @@
+framework module AIMJSONModelNetworking_iOS {
+  umbrella header "AIMJSONModelNetworking-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

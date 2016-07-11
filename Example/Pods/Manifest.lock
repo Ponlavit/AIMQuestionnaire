@@ -1,12 +1,35 @@
 PODS:
-  - AIMQuestionnaire (0.1.0)
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - AIMJSONModelNetworking-iOS (1.0.1):
+    - AFNetworking (~> 3.0)
+    - EGOCache
+  - AIMQuestionnaire (0.1.2):
+    - AIMJSONModelNetworking-iOS
+    - MBProgressHUD
+  - EGOCache (2.1.3)
   - FBSnapshotTestCase (2.1.2):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
   - FBSnapshotTestCase/Core (2.1.2)
   - FBSnapshotTestCase/SwiftSupport (2.1.2):
     - FBSnapshotTestCase/Core
+  - MBProgressHUD (0.9.2)
 
 DEPENDENCIES:
+  - AIMJSONModelNetworking-iOS
   - AIMQuestionnaire (from `../`)
   - FBSnapshotTestCase
 
@@ -15,9 +38,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AIMQuestionnaire: a2c5bdd649fc2c7ae9aab3a24091099685223a56
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AIMJSONModelNetworking-iOS: 2ee179cdae37133d8bf89bb7abae4ff230c445b8
+  AIMQuestionnaire: 60d21919e731087d112c4a9bc6964e3e995f1820
+  EGOCache: f0295dbe041156acabd39021354ad1045ee49e72
   FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
 
-PODFILE CHECKSUM: de5149bb57fffdcff4389cab6a6847c56fbe84d5
+PODFILE CHECKSUM: 9a505f5897fd27d2e9a6a70d5f1a8b9881009e80
 
 COCOAPODS: 1.0.1
