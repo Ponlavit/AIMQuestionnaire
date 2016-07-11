@@ -1,0 +1,6 @@
+framework module Pods_AIMQuestionnaire_Tests {
+  umbrella header "Pods-AIMQuestionnaire_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

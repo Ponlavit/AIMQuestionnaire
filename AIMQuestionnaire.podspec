@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'AIMQuestionnaire'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of AIMQuestionnaire.'
+  s.summary          = 'AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,18 +17,16 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse. the result will be delegate back and you can freely manage it.'
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/AIMQuestionnaire'
+  s.homepage         = 'https://github.com/Ponlavit/AIMQuestionnaire'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Ponlavit Larpeampaisarl' => 'ponlavit@do.in.th' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/AIMQuestionnaire.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/Ponlavit/AIMQuestionnaire.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/code_rabbit'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'AIMQuestionnaire/Classes/**/*'
   
@@ -37,6 +35,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.dependency 'AIMJSONModelNetworking-iOS'
 end

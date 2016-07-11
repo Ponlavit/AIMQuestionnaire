@@ -1,0 +1,23 @@
+PODS:
+  - AIMQuestionnaire (0.1.0)
+  - FBSnapshotTestCase (2.1.2):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
+  - FBSnapshotTestCase/Core (2.1.2)
+  - FBSnapshotTestCase/SwiftSupport (2.1.2):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - AIMQuestionnaire (from `../`)
+  - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  AIMQuestionnaire:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AIMQuestionnaire: a2c5bdd649fc2c7ae9aab3a24091099685223a56
+  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+
+PODFILE CHECKSUM: de5149bb57fffdcff4389cab6a6847c56fbe84d5
+
+COCOAPODS: 1.0.1

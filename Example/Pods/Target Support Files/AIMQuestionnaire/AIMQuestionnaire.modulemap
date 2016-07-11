@@ -1,0 +1,6 @@
+framework module AIMQuestionnaire {
+  umbrella header "AIMQuestionnaire-umbrella.h"
+
+  export *
+  module * { export * }
+}
