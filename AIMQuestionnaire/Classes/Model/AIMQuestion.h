@@ -6,7 +6,7 @@
 //  Copyright © 2559 Do In Thai co., ltd. All rights reserved.
 //
 
-#import "BaseModel.h"
+@import AIMJSONModelNetworking_iOS;
 #import "AIMAnswer.h"
 GENERICSABLE(AIMQuestion)
 @interface AIMQuestion : BaseModel

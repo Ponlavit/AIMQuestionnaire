@@ -11,7 +11,7 @@
 #import "AIMQuestion.h"
 @interface AIMQuestionView : UIView <AIMAnswerViewDelegate,UIWebViewDelegate>
 @property (nonatomic) float userScore;
-@property (nonatomic) long lastQuestionID;
+@property (nonatomic) long long lastQuestionID;
 @property (nonatomic,strong) AIMQuestion *question;
 
 -(id)initWithFrame:(CGRect)frame andQuestion:(AIMQuestion*)question;

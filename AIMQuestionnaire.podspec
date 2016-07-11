@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/code_rabbit'
 
   s.ios.deployment_target = '9.0'
-
+  s.module_name = 'AIMQuestionnaire'
   s.source_files = 'AIMQuestionnaire/Classes/**/*'
   
   # s.resource_bundles = {

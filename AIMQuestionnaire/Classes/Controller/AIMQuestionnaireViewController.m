@@ -8,7 +8,7 @@
 
 #import "AIMQuestionnaireViewController.h"
 #import "AIMQuestionView.h"
-#import "MBProgressHUD.h"
+@import MBProgressHUD;
 #import "UIColor+HexStringColor.h"
 @interface AIMQuestionnaireViewController ()
 @property (nonatomic) float totalScore;
@@ -96,7 +96,7 @@
     [self openQuestionFromID:qv.question.unique_id];
 }
 
--(void)openQuestionFromID:(long)questionID{
+-(void)openQuestionFromID:(long long)questionID{
     AIMQuestionView *nextQuestion = [self getQuestionFromID:questionID];
     if (self.currentQuestion) {
         self.currentQuestion.userScore = [self.currentQuestion calculateScore];
@@ -111,7 +111,7 @@
     [self.view addSubview:self.currentQuestion];
 }
 
--(AIMQuestionView*)getQuestionFromID:(long)questionID{
+-(AIMQuestionView*)getQuestionFromID:(long long)questionID{
     for (AIMQuestionView *questionView in self.ary_question) {
         if([questionView.question isSameKey:questionID])
             return questionView;
