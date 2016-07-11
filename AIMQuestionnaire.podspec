@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AIMQuestionnaire'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse'
 
 # This description is used to generate tags and improve search results.
