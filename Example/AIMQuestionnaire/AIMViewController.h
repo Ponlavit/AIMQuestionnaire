@@ -7,7 +7,9 @@
 //
 
 @import UIKit;
+@import AIMQuestionnaire;
+@import AIMJSONModelNetworking_iOS;
 
-@interface AIMViewController : UIViewController
+@interface AIMViewController : UIViewController <AIMQuestionnaireViewControllerDelegate>
 
 @end
