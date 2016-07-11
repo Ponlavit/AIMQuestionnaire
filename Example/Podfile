@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AIMQuestionnaire_Example' do
+  pod 'AIMQuestionnaire', :path => '../'
+
+  target 'AIMQuestionnaire_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
