@@ -7,8 +7,8 @@
 //
 
 @import UIKit;
-@import AIMQuestionnaire;
-@import AIMJSONModelNetworking_iOS;
+#import "AIMQuestionnaireViewController.h"
+#import "RestJSONWebServiceManager.h"
 
 @interface AIMViewController : UIViewController <AIMQuestionnaireViewControllerDelegate>
 

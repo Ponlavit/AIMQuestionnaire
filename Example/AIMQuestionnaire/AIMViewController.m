@@ -8,20 +8,27 @@
 
 #import "AIMViewController.h"
 #import "AIMQuestionnaireViewController.h"
+#import "RestJSONWebServiceManager.h"
+#import "AIMResultViewController.h"
 
 @interface AIMViewController ()
 @property (nonatomic,strong) NSMutableArray *datasource;
 @property (nonatomic,strong) AIMQuestionnaireViewController *questionnaireVC;
-
 @end
 
 @implementation AIMViewController
 
-
+-(NSMutableArray *)datasource{
+    if (!_datasource) {
+        _datasource = [NSMutableArray array];
+    }
+    return _datasource;
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Questionnaire";
 }
 
 -(void)setupView{
@@ -47,5 +54,14 @@
 
 -(void)questionnaire:(AIMQuestionnaireViewController *)questionnaire didFinishedWithResult:(AIMResult *)result{
     [self.questionnaireVC.view removeFromSuperview];
+    [self performSegueWithIdentifier:@"showResult" sender:result];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"showResult"]){
+        AIMResultViewController *rvc = (AIMResultViewController*)[segue destinationViewController];
+        [rvc setResult:sender];
+    }
+}
+
 @end

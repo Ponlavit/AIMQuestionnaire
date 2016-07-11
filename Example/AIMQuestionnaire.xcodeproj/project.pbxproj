@@ -22,6 +22,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		72D3FEEA1D338B550000BC1A /* AIMResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D3FEE91D338B550000BC1A /* AIMResultViewController.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		703B1F315BED6A8224B03ADD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		72D3FEE81D338B550000BC1A /* AIMResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMResultViewController.h; sourceTree = "<group>"; };
+		72D3FEE91D338B550000BC1A /* AIMResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMResultViewController.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A9BD98308261D3372322242A /* Pods-AIMQuestionnaire_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIMQuestionnaire_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIMQuestionnaire_Tests/Pods-AIMQuestionnaire_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B7D196C390F31E8283EA4A /* AIMQuestionnaire.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AIMQuestionnaire.podspec; path = ../AIMQuestionnaire.podspec; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* AIMViewController.h */,
 				6003F5A6195388D20070C39A /* AIMViewController.m */,
+				72D3FEE81D338B550000BC1A /* AIMResultViewController.h */,
+				72D3FEE91D338B550000BC1A /* AIMResultViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -391,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* AIMAppDelegate.m in Sources */,
+				72D3FEEA1D338B550000BC1A /* AIMResultViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* AIMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
