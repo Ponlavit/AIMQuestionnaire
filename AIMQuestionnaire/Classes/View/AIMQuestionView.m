@@ -15,16 +15,25 @@
 @property (nonatomic) float question_end_y;
 @property (nonatomic,strong) UIWebView *questionTextHolder;
 @property (nonatomic,strong) UIScrollView *answerScrollView;
+@property (nonatomic,strong) UIScrollView *imageHolder;
 @property (nonatomic) BOOL hasDoneRender;
 @end
 
 @implementation AIMQuestionView
 
+-(UIScrollView *)imageHolder{
+    if (!_imageHolder) {
+        _imageHolder = [[UIScrollView alloc] init];
+        [_imageHolder setBackgroundColor:[self getImageHolderBackgroundColor]];
+        [_imageHolder setPagingEnabled:YES];
+    }
+    return _imageHolder;
+}
 
 -(UIScrollView *)answerScrollView{
     if (!_answerScrollView) {
         _answerScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        [_answerScrollView setBackgroundColor:[UIColor whiteColor]];
+        [_answerScrollView setBackgroundColor:[UIColor clearColor]];
         [_answerScrollView setOpaque:YES];
     }
     return _answerScrollView;
@@ -53,6 +62,7 @@
         self.question = question;
         self.answerFinishedLoadedCount = 0;
         self.hasDoneRender = NO;
+        [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }
@@ -146,23 +156,20 @@
 }
 
 -(void)didFinishRenderAnswer:(AIMAnswerView *)answerView{
-    if (self.hasDoneRender) {
-        return;
-    }
     self.answerFinishedLoadedCount++;
     int last = self.question_end_y;
     if (self.answerFinishedLoadedCount == [self.ary_answer count]) {
         int offset = [self getButtonSpacing];
         for (AIMAnswerView *av in self.ary_answer) {
+            last = last + offset;
             [av setFrame:CGRectMake(av.frame.origin.x,
-                                    last + offset,
+                                    last,
                                     av.frame.size.width,
                                     av.frame.size.height)];
             last = av.frame.origin.y + av.frame.size.height;
         }
-        self.hasDoneRender = YES;
+        [self.answerScrollView setContentSize:CGSizeMake(self.bounds.size.width, last + 2*[self getButtonSpacing])];
     }
-    [self.answerScrollView setContentSize:CGSizeMake(self.bounds.size.width, last+[self getButtonSpacing])];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -179,8 +186,35 @@
                                      webView.scrollView.contentSize.height)];
         self.question_end_y = webView.frame.origin.y +
         webView.scrollView.contentSize.height;
-        [self setupAnswer];
+        if(self.question.has_image){
+            [self setupImageView];
+            self.question_end_y += [self imageHolderHeight];
+        }
+
+            [self setupAnswer];
     }
+}
+
+-(void)setupImageView{
+    [self.imageHolder setFrame:CGRectMake(
+                                          10,
+                                          self.question_end_y + 10,
+                                          self.frame.size.width-20,
+                                          [self imageHolderHeight])];
+    [self.answerScrollView addSubview:self.imageHolder];
+
+    NSMutableArray *imageArray = self.question.images;
+    float offset = 0;
+    for(NSString *imageName in imageArray){
+        UIImage *image = [UIImage imageNamed:imageName];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        [imageView setFrame:CGRectMake(offset, 0, self.imageHolder.frame.size.width, self.imageHolder.frame.size.height)];
+        offset += self.imageHolder.frame.size.width;
+        [imageView setBackgroundColor:[UIColor clearColor]];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        [self.imageHolder addSubview:imageView];
+    }
+    [self.imageHolder setContentSize:CGSizeMake(offset, self.imageHolder.frame.size.height)];
 }
 
 #pragma mark - setup for theme
@@ -193,6 +227,14 @@
 
 -(float)getButtonSpacing{
     return 20.0f;
+}
+
+-(float)imageHolderHeight{
+    return 200.0f;
+}
+
+-(UIColor*)getImageHolderBackgroundColor{
+    return [UIColor blackColor];
 }
 
 @end

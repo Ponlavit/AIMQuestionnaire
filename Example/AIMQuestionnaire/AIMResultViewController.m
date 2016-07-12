@@ -30,18 +30,22 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    self.title = self.show_result.result_header;
-    [self.result_holder loadHTMLString:[self setupThemeForAnswers:self.show_result.result_description] baseURL:nil];
+    self.title = @"ผลการตรวจสอบเบื้องต้น";
+    [self.result_holder loadHTMLString:[self setupThemeForHeader:self.show_result.result_header andDescription:self.show_result.result_description] baseURL:nil];
 }
 
 
--(NSString*)setupThemeForAnswers:(NSString*)answer{
+
+-(NSString*)setupThemeForHeader:(NSString*)header andDescription:(NSString*)desc{
     NSString *themeString = [NSString stringWithFormat:
-                             @"%@%d%@",@"<body style='margin:0;padding:0'><div style='background: #3498db;background-image: -webkit-linear-gradient(top, #3498db, #2980b9);display: block; width:",
+                             @"%@%@%@%d%@",
+                             @"<body style='margin:20;padding:20'><div style='style='background: #3498db;background-image: -webkit-linear-gradient(top, #3498db, #2980b9);display: block;'><h3><center>",
+                             header,
+                             @"</center></h3></div><div style='background: #3498db;background-image: -webkit-linear-gradient(top, #3498db, #2980b9);display: block; width:",
                              (int)self.result_holder.frame.size.width,
                              @" px;background-image: -moz-linear-gradient(top, #3498db, #2980b9);background-image: -ms-linear-gradient(top, #3498db, #2980b9);background-image: -o-linear-gradient(top, #3498db, #2980b9);background-image: linear-gradient(to bottom, #3498db, #2980b9);-webkit-border-radius: 10;-moz-border-radius: 10;border-radius: 10px;color: #ffffff;font-size: 20px;padding: 10px 20px 10px 20px;text-decoration: none;-moz-hyphens:auto;-ms-hyphens:auto;-webkit-hyphens:auto;hyphens:auto;word-wrap:break-word;'>"];
     NSString *endThemeString = @"</div></body>";
-    return [NSString stringWithFormat:@"%@%@%@",themeString,answer,endThemeString];
+    return [NSString stringWithFormat:@"%@%@%@",themeString,desc,endThemeString];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

@@ -28,16 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Questionnaire";
+    self.title = @"แบบสอบถาม";
 }
 
 -(void)setupView{
-
+    
 }
 
 
 -(void)viewDidAppear:(BOOL)animated{
-    [RestJSONWebServiceManager fetchJSONArrayOfClass:[AIMQuestionnaire class] fromURL:@"http://goodgap.com//sorethroat.php" module:@"STLM" updatedate:0 target:@"question" withParameters:nil success:^(NSNumber *statusCode, NSMutableArray *result, id responseObject) {
+    [RestJSONWebServiceManager fetchJSONArrayOfClass:[AIMQuestionnaire class] fromURL:@"http://rbithai.com/ftpp/getQuestionnaireExample.php" module:@"STLM" updatedate:0 target:@"question" withParameters:nil success:^(NSNumber *statusCode, NSMutableArray *result, id responseObject) {
         self.datasource = [result copy];
         [self showQuestionnair:[self.datasource objectAtIndex:0]];
     } failure:^(NSNumber *statusCode, NSError *error) {
