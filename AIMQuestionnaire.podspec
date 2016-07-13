@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AIMQuestionnaire'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'AIMQuestionnaire support the generate of question and answer. support theme. require AIMJSONModelNetworking-iOS for JSON and Model parse'
 
 # This description is used to generate tags and improve search results.
@@ -30,9 +30,10 @@ Pod::Spec.new do |s|
   s.module_name = 'AIMQuestionnaire'
   s.source_files = 'AIMQuestionnaire/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'AIMQuestionnaire' => ['AIMQuestionnaire/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'AIMQuestionnaire' => ['AIMQuestionnaire/Assets/*.png']
+  }
+
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'

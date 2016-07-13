@@ -18,4 +18,5 @@
 -(float)calculateScore;
 -(BOOL)isAllowNext;
 -(NSString*)getNextQuestion;
+-(void)deselectAll;
 @end

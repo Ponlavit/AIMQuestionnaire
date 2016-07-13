@@ -33,6 +33,8 @@
     if (!_backButton) {
         _backButton = [[UIButton alloc] initWithFrame:CGRectMake([self getFooterMargin], [self getFooterMargin], [self getActionButtonWidth], [self getFooterHeight]-[self getFooterMargin]*2)];
         [_backButton setTitle:[self getBackButtonTitle] forState:UIControlStateNormal];
+        [_backButton setImage:[self getBackButtonImage] forState:UIControlStateNormal];
+        [_backButton setBackgroundColor:[UIColor clearColor]];
         [_backButton addTarget:self action:@selector(didPressedBack) forControlEvents:UIControlEventTouchUpInside];
         [self setupButtonTheme:_backButton];
     }
@@ -42,6 +44,7 @@
     if (!_nextButton) {
         _nextButton = [[UIButton alloc] initWithFrame:CGRectMake(self.actionHolder.frame.size.width - [self getActionButtonWidth] - [self getFooterMargin], [self getFooterMargin], [self getActionButtonWidth], [self getFooterHeight]-[self getFooterMargin]*2)];
         [_nextButton setTitle:[self getNextButtonTitle] forState:UIControlStateNormal];
+        [_nextButton setImage:[self getNextButtonImage] forState:UIControlStateNormal];
         [_nextButton addTarget:self action:@selector(didPressedContinue) forControlEvents:UIControlEventTouchUpInside];
         [self setupButtonTheme:_nextButton];
     }
@@ -53,6 +56,7 @@
     if (!_actionHolder) {
         _actionHolder = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - [self getFooterHeight], self.view.frame.size.width, [self getFooterHeight])];
         [_actionHolder setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin];
+        [_actionHolder setBackgroundColor:[UIColor colorFromHexString:@"#2980b9"]];
     }
     return _actionHolder;
 }
@@ -74,7 +78,9 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self.questionHolder removeFromSuperview];
     [self.view addSubview:self.questionHolder];
+    [self.actionHolder removeFromSuperview];
     [self.view addSubview:self.actionHolder];
 
     [self generateQuestion];
@@ -109,6 +115,7 @@
     self.currentQuestion = nextQuestion;
     [self.backButton setHidden:self.currentQuestion.lastQuestionID == -1];
     [self.view addSubview:self.currentQuestion];
+    [self.view bringSubviewToFront:self.actionHolder];
 }
 
 -(AIMQuestionView*)getQuestionFromID:(long long)questionID{
@@ -161,13 +168,14 @@
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.hud setMode:MBProgressHUDModeText];
         [self.hud setLabelText:@"กรุณาเลือกอย่างน้อย 1 ข้อ"];
-        [self.hud hide:YES afterDelay:3.0f];
+        [self.hud hide:YES afterDelay:1.5f];
     }
 }
 
 -(void)didPressedBack{
     AIMQuestionView *lastQuestion = [self getQuestionFromID:self.currentQuestion.lastQuestionID];
 
+    [self.currentQuestion deselectAll];
     // Minus last question score
     self.totalScore -= [lastQuestion userScore];
 
@@ -178,6 +186,7 @@
     NSLog(@"total score is : %.2f",self.totalScore);
 
     [self.view addSubview:self.currentQuestion];
+    [self.view bringSubviewToFront:self.actionHolder];
 }
 
 - (void)viewDidLoad {
@@ -193,7 +202,7 @@
 #pragma mark - setup for theme
 
 - (float) getFooterHeight{
-    return 50.0f;
+    return 60.0f;
 }
 
 - (float) getFooterMargin{
@@ -201,20 +210,40 @@
 }
 
 - (float) getActionButtonWidth{
-    return 120.0f;
+    return 60.0f;
 }
 
 -(NSString*)getBackButtonTitle{
-    return @"กลับ";
+    return @"";
 }
 
 -(NSString*)getNextButtonTitle{
-    return @"ต่อไป";
+    return @"";
 }
 
+-(UIImage*)getNextButtonImage{
+    NSString *bundlePath = [[NSBundle bundleForClass:[self class]]
+                            pathForResource:@"AIMQuestionnaire" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+
+    NSString *imagePathString = [bundle pathForResource:@"theme1next" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePathString];
+
+    return image;
+}
+-(UIImage*)getBackButtonImage{
+    NSString *bundlePath = [[NSBundle bundleForClass:[self class]]
+                            pathForResource:@"AIMQuestionnaire" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+
+    NSString *imagePathString = [bundle pathForResource:@"theme1back" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePathString];
+
+    return image;
+}
 -(void)setupButtonTheme:(UIButton*)button{
-    [button.layer setCornerRadius:10.0f];
-    [button setBackgroundColor:[UIColor colorFromHexString:@"#2980b9"]];
+//    [button.layer setCornerRadius:10.0f];
+//    [button setBackgroundColor:[UIColor colorFromHexString:@"#2980b9"]];
 }
 
 @end

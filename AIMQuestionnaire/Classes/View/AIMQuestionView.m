@@ -35,6 +35,7 @@
         _answerScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         [_answerScrollView setBackgroundColor:[UIColor clearColor]];
         [_answerScrollView setOpaque:YES];
+        [_answerScrollView setClipsToBounds:NO];
     }
     return _answerScrollView;
 }
@@ -43,6 +44,13 @@
         _ary_answer = [NSMutableArray array];
     }
     return _ary_answer;
+}
+
+-(void)deselectAll{
+    for (AIMAnswerView *answer in self.ary_answer) {
+        [answer setSelected:NO];
+        [answer setEnabled:YES];
+    }
 }
 
 -(UIWebView *)questionTextHolder{

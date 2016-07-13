@@ -31,6 +31,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NDz-Ju-aij"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <segue destination="hrL-mG-3Iz" kind="push" identifier="showResult" id="y6w-EK-aBh"/>
                     </connections>
